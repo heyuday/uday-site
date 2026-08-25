@@ -1,7 +1,5 @@
 const SECTIONS = [
   { href: "#work", label: "work", always: true },
-  { href: "#now", label: "now", always: false },
-  { href: "#writing", label: "writing", always: true },
   { href: "#beyond", label: "beyond", always: false },
   { href: "#contact", label: "contact", always: true },
 ];

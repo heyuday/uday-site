@@ -1,6 +1,6 @@
-# udaytyagi.com — personal site
+# udaytyagi.com: personal site
 
-Static Next.js site. One page of anchored sections, plus `/resume`.
+Static Next.js site. One page of anchored sections.
 
 ```
 npm install
@@ -14,16 +14,15 @@ npm run format
 ## What's where
 
 ```
-src/content/          all editable copy and data — start here
-  site.ts             identity, links, hero, about, "now", "beyond", resumes
+src/content/          all editable copy and data, start here
+  site.ts             identity, links, hero, about, "beyond"
   projects.ts         work & research entries
   side-projects.ts    the compact list
-  writing.ts          blog posts (in progress + published)
   skills.ts           grouped skill tags
 src/components/       one file per section
-src/app/              layout (fonts + metadata), page, /resume, sitemap, robots
+src/app/              layout (fonts + metadata), page, sitemap, robots
 public/images/        pre-sized WebP photos + og.jpg
-public/*.pdf          the two resumes
+public/*.pdf          the resume
 ```
 
 Nothing is hardcoded in JSX. Editing a sentence means editing `src/content/`.
@@ -38,7 +37,7 @@ Append one object to `projects` in [`src/content/projects.ts`](src/content/proje
   title: "My Project",
   role: "Researcher",
   org: "Somewhere",
-  dates: "Jan 2027 — present",
+  dates: "Jan 2027 – present",
   note: "optional one-line subtitle",
   body: ["First paragraph.", "Second paragraph."],
   tags: ["PyTorch", "evals"],
@@ -47,26 +46,21 @@ Append one object to `projects` in [`src/content/projects.ts`](src/content/proje
 }
 ```
 
-Order in the array is order on the page. `weight: "flagship"` gives the full
-bordered treatment (currently NLA Steering); `"compact"` halves the vertical
-space for lower-relevance entries. `primary: true` on exactly one link per entry
-makes it the filled button — use it sparingly.
+Array order is display order. `weight: "flagship"` gives one entry the full
+bordered treatment (currently NLA Steering) wherever it sits in the list, it
+isn't tied to being first; `"compact"` halves the vertical space for
+lower-relevance entries. `primary: true` on exactly one link per entry makes
+it the filled button, use it sparingly.
 
-## Publish a blog post
+## Swap the resume
 
-In [`src/content/writing.ts`](src/content/writing.ts), set `status: "published"`
-and add `href`. The entry becomes a link and its bullet turns blue. No other
-change needed.
-
-## Swap a resume
-
-Overwrite `public/uday-tyagi-resume-research.pdf` or
-`public/uday-tyagi-resume-swe.pdf`. Labels and blurbs live in `resumes` in
-`src/content/site.ts`.
+Overwrite `public/uday-tyagi-resume-swe.pdf`. It's linked directly from the
+hero and the contact section via `identity.resume` in
+[`src/content/site.ts`](src/content/site.ts), no picker page.
 
 ## Add a photo
 
-Convert and size it first — the build does no image optimization (static export):
+Convert and size it first, the build does no image optimization (static export):
 
 ```bash
 python3 -c "
@@ -81,22 +75,23 @@ Then add it with its real `width`/`height` (no layout shift) and real alt text.
 
 ## Design
 
-- **Color** — `paper #FAF9F5`, `panel #F1EFE8`, `panel-2 #E9E6DC`, `ink #191817`,
+- **Color**: `paper #FAF9F5`, `panel #F1EFE8`, `panel-2 #E9E6DC`, `ink #191817`,
   `muted #6E6A61`, `line #DFDBD1`, `signal #2743D4`. One accent, spent
   deliberately. Tokens live in `@theme` in `src/app/globals.css`.
-- **Type** — Archivo (display, `-0.035em`), Instrument Sans (body),
+- **Type**: Archivo (display, `-0.035em`), Instrument Sans (body),
   JetBrains Mono (labels, metadata, the parts that are code-adjacent).
-- **Layout** — a fixed mono index rail on the left, content right; the rail
+- **Layout**: a fixed mono index rail on the left, content right; the rail
   labels stay put while sections scroll past them.
 
 ```
 ┌──────────────────────────────────────────────┐
-│ uday tyagi          work now writing beyond  │  sticky
+│ uday tyagi                  work beyond contact│ sticky
 ├──────────────────────────────────────────────┤
 │  ITHACA, NY · OPEN TO 2027 ROLES             │
 │  UDAY TYAGI                                  │  display
+│  (◎) Cornell University · graduating Dec 2026│  badge
 │  I build AI systems, and most of my work…    │
-│  · cornell · KLA · UW–Madison                │  mono
+│  · M.Eng Cornell · KLA · UW-Madison          │  mono
 │ ▌ safety thesis                              │  signal rule
 │  ┌────────────────────────────────────────┐  │
 │  │ STEERING DEMO      h ← h + λ·v         │  │  ← signature
@@ -105,18 +100,17 @@ Then add it with its real `width`/`height` (no layout shift) and real alt text.
 │  └────────────────────────────────────────┘  │
 ├──────────┬───────────────────────────────────┤
 │ 01 ABOUT │ prose                    [photo]  │
-│ 02 WORK  │ flagship card, then entries       │
-│ 03 NOW   │ …                                 │
+│ 02 WORK  │ KLA card, then flagship, then rest│
 └──────────┴───────────────────────────────────┘
 ```
 
-- **Signature** — the steering strip in the hero. Drag λ and the activation
+- **Signature**: the steering strip in the hero. Drag λ and the activation
   cloud moves along the vector while the response changes. It demonstrates the
   flagship project instead of describing it. Everything else on the page is
   deliberately quiet so this is the thing you remember.
-- **No dark mode.** One well-calibrated light theme beats two mediocre ones, and
-  the paper ground is the point.
-- **Motion** — one `IntersectionObserver` reveal per section
+- **No dark mode.** One well-calibrated light theme beats two mediocre ones,
+  and the paper ground is the point.
+- **Motion**: one `IntersectionObserver` reveal per section
   (`src/components/Reveal.tsx`) and the steering transition. Both are no-ops
   under `prefers-reduced-motion`.
 
@@ -127,5 +121,5 @@ Vercel, no configuration: import the repo and it detects Next.js. `output:
 
 The domain is `udaytyagi.com`, set in `SITE_URL`
 ([`src/content/site.ts`](src/content/site.ts)). It's the base for canonical
-URLs, `sitemap.xml`, `robots.txt`, and Open Graph tags — if the domain ever
+URLs, `sitemap.xml`, `robots.txt`, and Open Graph tags: if the domain ever
 changes, change it there too or link previews break.

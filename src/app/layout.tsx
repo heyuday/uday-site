@@ -24,13 +24,13 @@ const jetbrains = JetBrains_Mono({
 });
 
 const description =
-  "Uday Tyagi — ML and software engineer working on interpretability, steering, evaluations, and oversight. M.S. CS at Cornell, software engineer at KLA.";
+  "Uday Tyagi: ML and software engineer working on interpretability, steering, evaluations, and oversight. M.Eng. CS at Cornell, software engineer at KLA.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Uday Tyagi — AI safety, steering & evals",
-    template: "%s — Uday Tyagi",
+    default: "Uday Tyagi: AI safety, steering & evals",
+    template: "%s | Uday Tyagi",
   },
   description,
   keywords: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     type: "profile",
     url: SITE_URL,
     siteName: "Uday Tyagi",
-    title: "Uday Tyagi — AI safety, steering & evals",
+    title: "Uday Tyagi: AI safety, steering & evals",
     description,
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Uday Tyagi — AI safety, steering & evals",
+    title: "Uday Tyagi: AI safety, steering & evals",
     description,
     images: ["/images/og.jpg"],
   },

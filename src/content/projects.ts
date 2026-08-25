@@ -1,10 +1,11 @@
 /**
  * Work & research entries.
  *
- * To add a project: append one object to `projects`. Ordering here is the
- * ordering on the page — safety and research first, industry after.
- * `weight: "flagship"` gives an entry the full-bleed treatment; everything
- * else renders as a standard card, and "compact" halves the vertical space.
+ * To add a project: append one object to `projects`. Array order is display
+ * order (KLA first: it's the main job). The flagship card is selected by
+ * `weight: "flagship"`, not position, so it always renders NLA Steering
+ * regardless of where that entry sits in the list. "compact" halves the
+ * vertical space for lower-relevance entries.
  */
 
 export type ProjectLink = {
@@ -30,14 +31,26 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "kla",
+    title: "KLA",
+    role: "Software Engineer",
+    org: "Remote",
+    dates: "May 2025 – present",
+    body: [
+      "Fine-tuned an LLM-powered agent for the DART web application so engineers can drive defect-inspection workflows in natural language, from image classification through event routing and triage.",
+      "I extended that agent with a custom MCP server exposing internal inspection and triage tools, giving the model structured, auditable tool-calling instead of ad hoc API integrations: the same instinct as the safety work, which is knowing what the system did and why. Also built visual regression and UI-performance monitoring for HPC automation workflows with Grafana Faro and custom metrics tooling.",
+    ],
+    tags: ["LLM agents", "MCP", "fine-tuning", "observability", "Grafana Faro"],
+  },
+  {
     slug: "nla-steering",
     title: "NLA Steering",
     role: "Independent research",
     org: "out of the CAMBRIA program",
-    dates: "May 2026 — present",
+    dates: "May 2026 – present",
     note: "Text-driven behavioral steering of LLMs",
     body: [
-      "I used Natural Language Autoencoders (Fraser-Taliente et al., 2026) to generate steering vectors for Qwen2.5-7B from hand-written text descriptions alone — no training data, no activation extraction, no labeled examples. Write down what the behavior is, get a vector that produces it.",
+      "I used Natural Language Autoencoders (Fraser-Taliente et al., 2026) to generate steering vectors for Qwen2.5-7B from hand-written text descriptions alone: no training data, no activation extraction, no labeled examples. Write down what the behavior is, get a vector that produces it.",
       "The vectors reliably shift behavior at inference time across sycophancy, misalignment, and persona, and they're geometrically concept-specific rather than a generic nudge. I'm now ablating which parts of the text format actually carry the steering signal, and benchmarking the vectors as zero-shot behavioral probes against ground-truth activation-derived ones.",
     ],
     tags: [
@@ -61,11 +74,11 @@ export const projects: Project[] = [
     title: "Constitutional Drift",
     role: "Researcher",
     org: "LAISR · Cornell University",
-    dates: "Jan 2026 — present",
+    dates: "Jan 2026 – present",
     note: "Advised by Prof. Lionel Levine · with Rauno Arike and Katie Lu",
     body: [
       "We're measuring whether a model's stated values survive contact with itself: hand an LLM its own constitution, let it rewrite it, repeat, and track semantic drift, value collapse, and self-reinforcing edits across rounds.",
-      "I built the experimental harness with two collaborators — multi-round self-editing pipelines across model families, embedding- and judge-based drift metrics, and behavioral evals that check whether an edited constitution actually changes what the model does downstream, or only what it says.",
+      "I built the experimental harness with two collaborators: multi-round self-editing pipelines across model families, embedding- and judge-based drift metrics, and behavioral evals that check whether an edited constitution actually changes what the model does downstream, or only what it says.",
     ],
     tags: ["LLM evals", "value alignment", "self-modification", "behavioral evals"],
     // TODO: verify and link Prof. Lionel Levine's Cornell faculty page.
@@ -75,11 +88,11 @@ export const projects: Project[] = [
     slug: "project-orion",
     title: "Project Orion",
     role: "Research Engineer",
-    org: "Cornell University · NASA University Student Research Challenge",
-    dates: "Jan 2026 — present",
+    org: "NASA project at Cornell University",
+    dates: "Jan 2026 – present",
     note: "Advised by Mehrnaz Sabet",
     body: [
-      "I trained a diffusion-based motion planner to replace ORCA for real-time multi-drone collision avoidance — a DiT generating velocity command sequences from ego and neighbor states, with DPM-Solver++ inference optimization and low-temperature reranking. It reaches ~80% mean scenario completion against ORCA's 59%.",
+      "I trained a diffusion-based motion planner to replace ORCA for real-time multi-drone collision avoidance: a DiT generating velocity command sequences from ego and neighbor states, with DPM-Solver++ inference optimization and low-temperature reranking. It reaches ~80% mean scenario completion against ORCA's 59%.",
       "Around it I built the deconfliction stack: a ROS 2 planner plugin, scenario-based evaluation pipelines with behavioral analytics, and a ~200k-trajectory training dataset spanning six collision scenarios.",
     ],
     tags: ["diffusion models", "DiT", "ROS 2", "multi-agent planning", "robotics"],
@@ -96,10 +109,10 @@ export const projects: Project[] = [
     title: "SMARAG",
     role: "Researcher",
     org: "Cornell University · Prof. Oliver Gao Lab, with Dr. Xinlai Liu",
-    dates: "Jan 2026 — present",
+    dates: "Jan 2026 – present",
     note: "Multi-agent RAG for automated carbon reporting",
     body: [
-      "I did the engineering and implementation work on the multi-agent RAG system for automated ESG carbon reporting — LangChain orchestration, RL for factual grounding.",
+      "I did the engineering and implementation work on the multi-agent RAG system for automated ESG carbon reporting: LangChain orchestration, RL for factual grounding.",
       "I also designed the agent observability layer: audit-trail logging and behavioral guardrails that catch hallucinated citations before they land in a regulatory filing.",
     ],
     tags: ["multi-agent systems", "RAG", "LangChain", "RL", "agent observability"],
@@ -115,7 +128,7 @@ export const projects: Project[] = [
     title: "CAMBRIA",
     role: "AI Safety Fellow",
     org: "Cambridge Boston Alignment Initiative",
-    dates: "May — June 2026",
+    dates: "May – June 2026",
     body: [
       "Worked through the ARENA mechanistic interpretability curriculum at CBAI's intensive: linear probes, steering vectors, activation patching, sparse autoencoders, OthelloGPT, emergent misalignment, alignment faking, and LLM evals. The NLA steering work came out of this program.",
     ],
@@ -127,31 +140,19 @@ export const projects: Project[] = [
     title: "AI Safety Camp",
     role: "Research Fellow",
     org: "Remote",
-    dates: "Dec 2025 — April 2026",
+    dates: "Dec 2025 – April 2026",
     body: [
-      "Evaluated hierarchical and parallel AI control protocols on the ControlArena benchmark, measuring how the safety–usefulness tradeoff moves as the capability gap between trusted and untrusted models widens.",
+      "Evaluated hierarchical and parallel AI control protocols on the ControlArena benchmark, measuring how the safety-usefulness tradeoff moves as the capability gap between trusted and untrusted models widens.",
       "Extended ControlArena with red-team/blue-team protocols and Elo-based scoring to find the point where oversight mechanisms fail under adversarial prompting.",
     ],
     tags: ["AI control", "ControlArena", "adversarial evals", "oversight"],
-  },
-  {
-    slug: "kla",
-    title: "KLA",
-    role: "Software Engineer",
-    org: "Remote",
-    dates: "May 2025 — present",
-    body: [
-      "Fine-tuned an LLM-powered agent for the DART web application so engineers can drive defect-inspection workflows in natural language — image classification through event routing and triage.",
-      "I extended that agent with a custom MCP server exposing internal inspection and triage tools, giving the model structured, auditable tool-calling instead of ad hoc API integrations — the same instinct as the safety work, which is knowing what the system did and why. Also built visual regression and UI-performance monitoring for HPC automation workflows with Grafana Faro and custom metrics tooling.",
-    ],
-    tags: ["LLM agents", "MCP", "fine-tuning", "observability", "Grafana Faro"],
   },
   {
     slug: "foresee-health",
     title: "Foresee Health",
     role: "Software Engineering Intern",
     org: "San Francisco, CA",
-    dates: "Sept 2024 — Jan 2025",
+    dates: "Sept 2024 – Jan 2025",
     body: [
       "Built the authentication system for the invoice application on AWS Amplify and Lambda, and designed the PostgreSQL schemas and synchronization patterns behind a microservices architecture handling large customer datasets.",
     ],

@@ -63,11 +63,11 @@ function Flagship({ p }: { p: Project }) {
   );
 }
 
-function Card({ p }: { p: Project }) {
+function Card({ p, first }: { p: Project; first?: boolean }) {
   const compact = p.weight === "compact";
   return (
     <article
-      className={`border-line border-t ${compact ? "pt-5" : "pt-6"} first:border-t-0 first:pt-0`}
+      className={first ? "pt-0" : `border-line border-t ${compact ? "pt-6" : "pt-8"}`}
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
         <h3
@@ -96,20 +96,25 @@ function Card({ p }: { p: Project }) {
 }
 
 export default function Work() {
-  const [flagship, ...rest] = projects;
+  // Render in array order (KLA first, the main job) rather than pulling the
+  // flagship card to the top: whichever entry is weight:"flagship" still
+  // gets the big treatment, it just appears wherever it sits in the list.
+  const firstCardIndex = projects.findIndex((p) => p.weight !== "flagship");
 
   return (
     <Section id="work" index="02" label="work & research">
-      <Reveal>
-        <Flagship p={flagship} />
-      </Reveal>
-
-      <div className="mt-12 space-y-10">
-        {rest.map((p, i) => (
-          <Reveal key={p.slug} as="article" delay={Math.min(i, 3) * 50}>
-            <Card p={p} />
-          </Reveal>
-        ))}
+      <div className="space-y-10">
+        {projects.map((p, i) =>
+          p.weight === "flagship" ? (
+            <Reveal key={p.slug}>
+              <Flagship p={p} />
+            </Reveal>
+          ) : (
+            <Reveal key={p.slug} as="article" delay={Math.min(i, 3) * 50}>
+              <Card p={p} first={i === firstCardIndex} />
+            </Reveal>
+          ),
+        )}
       </div>
 
       <Reveal className="mt-16">
@@ -117,13 +122,35 @@ export default function Work() {
         <ul className="divide-line border-line mt-4 divide-y border-y">
           {sideProjects.map((s) => (
             <li key={s.title} className="py-4">
-              <h4 className="text-ink text-[15px] font-medium">{s.title}</h4>
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h4 className="text-ink text-[15px] font-medium">{s.title}</h4>
+                {s.href && (
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted hover:text-signal font-mono text-[11px] transition-colors"
+                  >
+                    code ↗
+                  </a>
+                )}
+              </div>
               <p className="text-muted mt-1 max-w-2xl text-[14px] leading-relaxed">
                 {s.blurb}
               </p>
             </li>
           ))}
         </ul>
+        <p className="mt-5 font-mono text-[12px]">
+          <a
+            href="https://github.com/heyuday?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted hover:text-ink transition-colors"
+          >
+            more on github ↗
+          </a>
+        </p>
       </Reveal>
     </Section>
   );

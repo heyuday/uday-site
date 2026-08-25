@@ -6,11 +6,11 @@ import LiteYouTube from "./LiteYouTube";
 
 /**
  * The one section that gets to breathe. Wider measure, warmer panel, photos at
- * full width — the contrast with the research sections is the point.
+ * full width, the contrast with the research sections is the point.
  */
 export default function Beyond() {
   return (
-    <Section id="beyond" index="05" label="beyond the terminal" className="bg-panel">
+    <Section id="beyond" index="03" label="beyond the terminal" className="bg-panel">
       <Reveal>
         <h3 className="u-display text-[clamp(1.6rem,4.6vw,2.25rem)]">
           {beyond.heading}

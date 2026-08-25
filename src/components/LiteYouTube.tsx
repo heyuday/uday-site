@@ -4,7 +4,7 @@ import { useState } from "react";
 
 /**
  * Click-to-load YouTube embed. Ships a thumbnail and nothing else until the
- * viewer asks for the player — a raw iframe costs ~500KB on first paint.
+ * viewer asks for the player: a raw iframe costs ~500KB on first paint.
  */
 export default function LiteYouTube({
   id,
@@ -35,7 +35,7 @@ export default function LiteYouTube({
   return (
     <div className="border-line bg-panel-2 relative aspect-video w-full overflow-hidden rounded-lg border">
       {/* Plain <img>: the thumbnail is a remote asset on a static export, and
-          maxres doesn't exist for every upload — hence the hq fallback. */}
+          maxres doesn't exist for every upload, hence the hq fallback. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}

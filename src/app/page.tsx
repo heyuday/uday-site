@@ -2,8 +2,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Work from "@/components/Work";
-import Now from "@/components/Now";
-import Writing from "@/components/Writing";
 import Beyond from "@/components/Beyond";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
@@ -13,12 +11,11 @@ import { SITE_URL, identity } from "@/content/site";
 /**
  * Single page with anchored sections.
  *
- * Justification for not splitting into routes: the whole thing is ~2,400 words
- * of body copy. Every section earns its scroll, and the argument the site is
- * making — safety work first, industry work as evidence of the same instinct —
+ * Justification for not splitting into routes: the whole thing is short
+ * enough that every section earns its scroll, and the argument the site is
+ * making, safety work first, industry work as evidence of the same instinct,
  * only lands if you read the sections in order. Splitting would hide the
- * argument behind navigation. `/resume` is the one separate route, because a
- * PDF is a different kind of object.
+ * argument behind navigation.
  */
 
 const jsonLd = {
@@ -48,7 +45,7 @@ export default function Home() {
     <>
       <a
         href="#work"
-        className="bg-ink text-paper sr-only rounded px-3 py-2 focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60]"
+        className="bg-ink text-paper sr-only rounded px-3 py-2 focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-60"
       >
         Skip to work
       </a>
@@ -57,8 +54,6 @@ export default function Home() {
         <Hero />
         <About />
         <Work />
-        <Now />
-        <Writing />
         <Beyond />
         <Skills />
         <Contact />

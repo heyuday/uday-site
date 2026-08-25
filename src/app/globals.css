@@ -63,7 +63,7 @@ body {
   color: var(--color-muted);
 }
 
-/* Fine ruled grid used as a background texture on the hero — a nod to a
+/* Fine ruled grid used as a background texture on the hero, a nod to a
    coordinate space, not decoration bolted on. */
 .u-grid-bg {
   background-image:

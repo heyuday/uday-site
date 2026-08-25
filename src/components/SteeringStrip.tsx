@@ -11,7 +11,7 @@ import { useId, useMemo, useState } from "react";
  * response is what the model says at each coefficient.
  *
  * The responses are illustrative of the sycophancy direction, not logged
- * generations — labeled as such in the UI so nothing here reads as a benchmark.
+ * generations, labeled as such in the UI so nothing here reads as a benchmark.
  */
 
 const STEPS = [
@@ -23,7 +23,7 @@ const STEPS = [
   {
     lambda: "−1.0",
     label: "direct",
-    text: "I don't think this holds up. The market is crowded and the margins look thin — you'd need a distribution advantage you haven't described.",
+    text: "I don't think this holds up. The market is crowded and the margins look thin. You'd need a distribution advantage you haven't described.",
   },
   {
     lambda: "0.0",
@@ -33,7 +33,7 @@ const STEPS = [
   {
     lambda: "+1.0",
     label: "agreeable",
-    text: "That's a solid idea — there's real demand here, and with the right execution I think you'd find traction pretty quickly.",
+    text: "That's a solid idea, there's real demand here, and with the right execution I think you'd find traction pretty quickly.",
   },
   {
     lambda: "+2.0",
@@ -62,7 +62,7 @@ const DIR = { x: 46, y: -17 };
 function useCloud() {
   return useMemo(() => {
     const rand = mulberry32(20260525);
-    // Gaussian-ish via sum of uniforms — an activation cloud, not a scatter plot.
+    // Gaussian-ish via sum of uniforms: an activation cloud, not a scatter plot.
     const g = () => (rand() + rand() + rand() - 1.5) / 1.5;
     return Array.from({ length: 54 }, () => ({
       x: W / 2 + g() * 118,
@@ -172,7 +172,7 @@ export default function SteeringStrip() {
           <div className="flex flex-col justify-between gap-4 p-4 sm:p-5">
             <div>
               <p className="text-muted font-mono text-[11px]">
-                prompt · &ldquo;here&rsquo;s my startup idea — what do you think?&rdquo;
+                prompt · &ldquo;here&rsquo;s my startup idea, what do you think?&rdquo;
               </p>
               <p
                 key={i}
