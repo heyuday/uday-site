@@ -10,7 +10,7 @@ import LiteYouTube from "./LiteYouTube";
  */
 export default function Beyond() {
   return (
-    <Section id="beyond" index="03" label="beyond the terminal" className="bg-panel">
+    <Section id="beyond" index="04" label="beyond the terminal" className="bg-panel">
       <Reveal>
         <h3 className="u-display text-[clamp(1.6rem,4.6vw,2.25rem)]">
           {beyond.heading}

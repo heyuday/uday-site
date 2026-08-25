@@ -54,8 +54,8 @@ export default function Home() {
         <Hero />
         <About />
         <Work />
-        <Beyond />
         <Skills />
+        <Beyond />
         <Contact />
       </main>
       <Footer />

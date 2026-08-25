@@ -43,11 +43,8 @@ function Links({ p }: { p: Project }) {
 
 function Flagship({ p }: { p: Project }) {
   return (
-    <article className="border-ink/15 bg-panel relative rounded-xl border p-5 shadow-[0_1px_0_rgba(25,24,23,0.04)] sm:p-7">
-      <span className="u-label bg-paper text-signal absolute -top-2.5 left-5 px-2 sm:left-7">
-        flagship
-      </span>
-      <h3 className="u-display mt-1 text-[clamp(1.75rem,5vw,2.5rem)]">{p.title}</h3>
+    <article className="border-ink/15 bg-panel rounded-xl border p-5 shadow-[0_1px_0_rgba(25,24,23,0.04)] sm:p-7">
+      <h3 className="u-display text-[clamp(1.75rem,5vw,2.5rem)]">{p.title}</h3>
       {p.note && <p className="text-ink mt-1 text-[15px]">{p.note}</p>}
       <Meta p={p} />
       <div className="text-ink mt-4 max-w-2xl space-y-3 text-[15px] leading-relaxed sm:text-[16px]">

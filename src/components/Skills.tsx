@@ -5,7 +5,7 @@ import Tags from "./Tags";
 
 export default function Skills() {
   return (
-    <Section id="skills" index="04" label="skills">
+    <Section id="skills" index="03" label="skills">
       <Reveal className="space-y-7">
         {skillGroups.map((g) => (
           <div key={g.label}>

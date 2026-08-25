@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { hero, identity } from "@/content/site";
 import SteeringStrip from "./SteeringStrip";
 
@@ -6,47 +7,17 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div aria-hidden="true" className="u-grid-bg absolute inset-0" />
       <div className="relative mx-auto max-w-6xl px-5 pt-14 pb-14 sm:px-8 sm:pt-20 sm:pb-20">
-        <p className="u-label">Ithaca, NY · open to 2027 roles</p>
-
-        <h1 className="u-display mt-5 text-[clamp(2.75rem,11vw,7rem)]">
-          {identity.name}
-        </h1>
+        <h1 className="u-display text-[clamp(2.75rem,11vw,7rem)]">{identity.name}</h1>
 
         <div className="border-line bg-panel mt-5 inline-flex items-center gap-2.5 rounded-full border py-1.5 pr-4 pl-2.5">
-          <svg
-            viewBox="0 0 24 24"
+          <Image
+            src="/images/cornell-seal.png"
+            alt=""
             aria-hidden="true"
-            className="text-signal h-5 w-5 shrink-0"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="10"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              r="6.4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              opacity="0.5"
-            />
-            <text
-              x="12"
-              y="15.6"
-              textAnchor="middle"
-              fontSize="10.5"
-              fontFamily="var(--font-display)"
-              fontWeight="700"
-              fill="currentColor"
-            >
-              C
-            </text>
-          </svg>
+            width={96}
+            height={96}
+            className="h-5 w-5 shrink-0"
+          />
           <span className="text-ink font-mono text-[12px] font-medium sm:text-[13px]">
             Cornell University
           </span>

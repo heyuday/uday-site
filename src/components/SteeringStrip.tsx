@@ -216,7 +216,7 @@ export default function SteeringStrip() {
         </div>
       </div>
       <figcaption className="text-muted mt-3 max-w-prose text-sm">
-        This is what my flagship project does, except the vector is generated from a
+        This is what my NLA Steering project does, except the vector is generated from a
         sentence of English instead of collected from labeled examples.
       </figcaption>
 
