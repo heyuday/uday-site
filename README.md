@@ -1,4 +1,4 @@
-# uday.dev — personal site
+# udaytyagi.dev — personal site
 
 Static Next.js site. One page of anchored sections, plus `/resume`.
 
@@ -125,7 +125,7 @@ Then add it with its real `width`/`height` (no layout shift) and real alt text.
 Vercel, no configuration: import the repo and it detects Next.js. `output:
 "export"` means the build emits `./out`, so any static host works too.
 
-**Before the first deploy:** set the real domain in `SITE_URL`
+The domain is `udaytyagi.dev`, set in `SITE_URL`
 ([`src/content/site.ts`](src/content/site.ts)). It's the base for canonical
-URLs, `sitemap.xml`, `robots.txt`, and Open Graph tags — a wrong value there
-means broken link previews.
+URLs, `sitemap.xml`, `robots.txt`, and Open Graph tags — if the domain ever
+changes, change it there too or link previews break.

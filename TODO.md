@@ -1,12 +1,10 @@
 # TODO
 
 ## Now — before the site goes live
-- [ ] **Pick and buy the domain.** `uday.net` is taken by a squatter-ish parking
-      page; realistic options: `udaytyagi.com`, `uday.dev`, `uday.engineer`,
-      `udaytyagi.ai`. Whatever you pick, set it in `SITE_URL` in
-      `src/content/site.ts` — it drives canonical URLs, `sitemap.xml`,
-      `robots.txt`, and Open Graph. Currently a placeholder.
-- [ ] Deploy: push to GitHub → import on Vercel → attach the domain. Zero config.
+- [x] ~~Domain: **udaytyagi.dev**, bought through Vercel and set in `SITE_URL`.~~
+- [x] ~~Deployed on Vercel.~~
+- [ ] Confirm `udaytyagi.dev` resolves with a valid cert (give DNS a few minutes),
+      and that the bare domain and `www` both land on the site.
 - [ ] Confirm the OG image. It's currently the Chicago photo cropped to 1200×630
       and your face sits right of center — check the preview on LinkedIn.
 - [ ] Verify the NLA repo URL. I linked

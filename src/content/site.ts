@@ -3,9 +3,9 @@
  * in `src/content/` — nothing here is hardcoded into JSX.
  */
 
-// TODO: replace with the real production domain once the Vercel project has
-// its custom domain attached. Used for canonical URLs, sitemap, and OG tags.
-export const SITE_URL = "https://udaytyagi.com";
+// Production domain. Drives canonical URLs, sitemap.xml, robots.txt, and the
+// Open Graph tags — keep it in sync with the domain attached in Vercel.
+export const SITE_URL = "https://udaytyagi.dev";
 
 export const identity = {
   name: "Uday Tyagi",
