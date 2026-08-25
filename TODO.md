@@ -1,9 +1,9 @@
 # TODO
 
 ## Now — before the site goes live
-- [x] ~~Domain: **udaytyagi.dev**, bought through Vercel and set in `SITE_URL`.~~
+- [x] ~~Domain: **udaytyagi.com**, bought through Vercel and set in `SITE_URL`.~~
 - [x] ~~Deployed on Vercel.~~
-- [ ] Confirm `udaytyagi.dev` resolves with a valid cert (give DNS a few minutes),
+- [ ] Confirm `udaytyagi.com` resolves with a valid cert (give DNS a few minutes),
       and that the bare domain and `www` both land on the site.
 - [ ] Confirm the OG image. It's currently the Chicago photo cropped to 1200×630
       and your face sits right of center — check the preview on LinkedIn.

@@ -5,7 +5,7 @@
 
 // Production domain. Drives canonical URLs, sitemap.xml, robots.txt, and the
 // Open Graph tags — keep it in sync with the domain attached in Vercel.
-export const SITE_URL = "https://udaytyagi.dev";
+export const SITE_URL = "https://udaytyagi.com";
 
 export const identity = {
   name: "Uday Tyagi",
