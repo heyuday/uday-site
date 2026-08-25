@@ -30,23 +30,23 @@ export const hero = {
 
 export const about = {
   paragraphs: [
-    "I'm from Chicago. I grew up in Delhi until I was twelve, then spent my teens back in Chicago, which is a long way of saying I've had to learn two places well enough to be from both.",
+    "I'm from Chicago. I grew up in Delhi until I was twelve, then spent my teens in Chicago, which is a long way of saying I've had to learn two places well enough to be from both.",
     "I'm finishing a master's in computer science at Cornell in December 2026, after a B.S. at UW–Madison I got through in two and a half years. I'm a software engineer at KLA, where I work on LLM agents and the tooling that makes their actions auditable.",
-    "At Cornell I lead operations for Cornell AI Alignment and run the weekly technical paper reading group. Before that I led a 10-student cohort through the AI Safety Fundamentals curriculum at the Wisconsin AI Safety Initiative.",
+    "At Cornell I lead operations for Cornell AI Alignment and run the weekly technical paper reading group. Before that I led a 10-student cohort through the AI Safety Fundamentals curriculum at the Wisconsin AI Safety Initiative, and was part of their technical scholars group.",
   ],
 } as const;
 
 export const beyond = {
-  heading: "Beyond the terminal",
+  heading: "Outside of Work",
   film: {
     url: "https://www.youtube.com/watch?v=a-SbMCZYFdg",
     id: "a-SbMCZYFdg",
     title: "A short film by Uday Tyagi",
   },
   filmCopy:
-    "I make films. It's the same instinct as good research communication: deciding what someone needs to see, and in what order, before they'll believe the thing you're telling them.",
+    "I make films and have a passion for visual storytelling. It's the same instinct as good research communication: deciding what someone needs to see, and in what order, before they'll believe the thing you're telling them.",
   outdoorsCopy:
-    "The rest of my time outside work is spent outside. Mountain biking, off-roading, anything at altitude. It's the one part of my life with no logs and no evals, and I'd like to keep it that way.",
+    "The rest of my time outside work is spent outside. Mountain biking, off-roading, anything outdoors.",
   photos: [
     {
       src: "/images/uday-mtb.webp",
