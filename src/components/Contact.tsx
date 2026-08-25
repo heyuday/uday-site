@@ -13,11 +13,7 @@ export default function Contact() {
   return (
     <Section id="contact" index="05" label="contact">
       <Reveal>
-        <p className="text-ink max-w-2xl text-[clamp(1.25rem,3.5vw,1.75rem)] leading-snug">
-          If you&rsquo;re working on steering, evals, interpretability, or oversight, or
-          you want an engineer who takes those seriously on your team, email me.
-        </p>
-        <ul className="divide-line border-line mt-8 max-w-lg divide-y border-y">
+        <ul className="divide-line border-line max-w-lg divide-y border-y">
           {LINKS.map((l) => (
             <li key={l.label}>
               <a
