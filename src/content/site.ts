@@ -13,7 +13,7 @@ export const identity = {
   github: "https://github.com/heyuday",
   linkedin: "https://www.linkedin.com/in/heyuday/",
   // Single resume, no picker page: this is the SWE / AI engineering version.
-  resume: "/public/UdayTyagiResume-site.pdf",
+  resume: "/UdayTyagiResume-site.pdf",
 } as const;
 
 export const hero = {
